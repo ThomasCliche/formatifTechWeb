@@ -1,0 +1,45 @@
+<!--
+//-----------------------------------
+  //   Fichier : 
+  //   Par:      Alain Martel
+  //   Date :    2024-10-09
+  //   modifié par : 
+  //-----------------------------------
+-->
+<div class='container'>
+  <section class="entete row">
+    <h1>
+    <img width=50px src="images/jourvie.png" alt="non dispo">
+    {{titre}}</h1> 
+    <h4 *ngIf="!connecter">par Thomas Cliche</h4>
+    <button class="col-1" *ngIf="connecter" (click)="onConfig()">Config</button>
+  </section>
+
+  <app-connexion #conn
+  (ConnexionReussieInactif) = lt.onConnexion($event)
+  (ConnexionReussieActif) = jour.onConnexion($event)
+  (ConnexionReussieInactif) = onConnexion($event)
+  (ConnexionReussieActif) = onConnexion($event)>
+  </app-connexion>
+
+  <app-liste-taches #lt
+      (quitterLT) = onQuitterLT();
+      (quitterLT) = conn.onQuitter()
+      (demarrerSesTrav) = jour.onDemarrerSessTrav($event)
+      (ouvrirStatistiques) = stats.onOuvrir($event)>
+      
+  </app-liste-taches>
+
+  <app-journal #jour
+     (changerTache) = lt.onchangerTache($event)
+     (quitterJournal) = conn.onQuitter()>
+  </app-journal>
+
+  <app-statistiques #stats
+  (quitterStatistiques) = lt.onConnexion($event)>
+  </app-statistiques>
+
+</div>
+
+
+

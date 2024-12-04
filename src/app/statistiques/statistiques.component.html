@@ -1,0 +1,19 @@
+
+<section *ngIf="visible">
+    <article class="row">
+  
+    <button class="col-1 btn btn-info" (click)="quitterStats()">
+     <img width=50 src="images/quitter.png" alt="non dispo"  title="Consulter les statistiques du projet">
+   </button>
+   <h3 class="col-6 {{dev.etat}}">Statistiques</h3>
+ </article>   
+ 
+    <article class="row">
+     
+
+     <h5>Nb sessions {{tabStats[0]}}</h5>
+     <h5>Minutes travaillées: {{tabStats[1]}}</h5>
+     <h5>Heure {{tabStats[1]/60}}</h5>
+     <h5>Nb commentaires: {{tabStats[2]}}</h5>
+      </article>
+  </section>
